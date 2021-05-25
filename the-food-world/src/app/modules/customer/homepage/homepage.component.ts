@@ -86,7 +86,7 @@ export class HomepageComponent implements OnInit {
   }
 
   handlePageChange(event) {
-    console.log(event);
+    window.scrollTo(0,500);
     this.page = event;
     this.retrieveFoods();
   }
@@ -125,7 +125,7 @@ export class HomepageComponent implements OnInit {
 
   searchByCategory(){
     this.foodCategoryId = this.searchByCategoryForm.get('foodCategoryId').value;
-
+    window.scrollTo(0,500);
     this.retrieveFoods();
   }
 
