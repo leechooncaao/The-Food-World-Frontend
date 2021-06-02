@@ -1,6 +1,9 @@
 $(function() {
   "use strict";
 
+  //show hide edit form comment
+
+
   //------- Parallax -------//
   skrollr.init({
     forceHeight: false

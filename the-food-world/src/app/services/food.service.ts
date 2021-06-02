@@ -14,4 +14,8 @@ export class FoodService {
   public getAllFoods(params): Observable<any> {
     return this.http.get(BASE_URL, {params});
   }
+
+  public getDetailFood(foodId: any): Observable<any> {
+    return this.http.get(BASE_URL + '/' + foodId);
+  }
 }

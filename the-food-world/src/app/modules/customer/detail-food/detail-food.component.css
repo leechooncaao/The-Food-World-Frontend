@@ -1,0 +1,21 @@
+#modify-comment a {
+  color: #384aeb;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.delete-icon {
+  color: red;
+  background-color: #384aeb;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.modify-btn {
+  padding: 0 10px;
+  border-radius: 5px;
+}

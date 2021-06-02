@@ -39,7 +39,6 @@ export class HomepageComponent implements OnInit {
   }
 
   getRequestParams(foodName, page, pageSize, sortCriteria, foodCategoryId) {
-    // tslint:disable-next-line:prefer-const
     let params = {};
 
     if (foodName != null && foodName != '') {
@@ -78,7 +77,6 @@ export class HomepageComponent implements OnInit {
             this.foods = null;
           }
           
-          console.log(response);
         },
         error => {
           console.log(error);
@@ -126,6 +124,7 @@ export class HomepageComponent implements OnInit {
   searchByCategory(){
     this.foodCategoryId = this.searchByCategoryForm.get('foodCategoryId').value;
     window.scrollTo(0,500);
+    this.page = 1;
     this.retrieveFoods();
   }
 
