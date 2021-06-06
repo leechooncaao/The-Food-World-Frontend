@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Food } from 'src/app/models/Food';
+import { CartService } from 'src/app/services/cart.service';
 import { FoodService } from 'src/app/services/food.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class HomepageComponent implements OnInit {
   count = 0;
   pageSize = 9;
 
-  constructor(private foodService: FoodService) { }
+  constructor(private foodService: FoodService,
+              private cartService: CartService) { }
 
   ngOnInit(): void {
     this.sortCriteria = ["foodTimePost", "desc"];
@@ -126,6 +128,10 @@ export class HomepageComponent implements OnInit {
     window.scrollTo(0,500);
     this.page = 1;
     this.retrieveFoods();
+  }
+
+  addToCart(food: any){
+    this.cartService.addNewFoodToCart(food);
   }
 
 }

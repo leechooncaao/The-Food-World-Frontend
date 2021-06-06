@@ -364,7 +364,13 @@ a {
   background: transparent;
   position: relative;
 }
-.nav-shop li button .nav-shop__circle {
+.nav-shop .cart {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  position: relative;
+}
+.nav-shop li a .nav-shop__circle {
   font-size: 9px;
   display: inline-block;
   background: #384aeb;

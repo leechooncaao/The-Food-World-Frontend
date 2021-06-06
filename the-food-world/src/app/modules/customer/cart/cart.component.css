@@ -1,0 +1,17 @@
+.media img {
+  height: 125px;
+  width: 130px;
+}
+
+.item-center {
+  text-align: center;
+}
+.increase {
+  background-color: #384aeb;
+  color: white;
+}
+
+.reduced {
+  background-color: gray;
+  color: white;
+}

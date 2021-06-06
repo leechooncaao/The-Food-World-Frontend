@@ -9,11 +9,13 @@ import { DetailFoodComponent } from './detail-food/detail-food.component';
 import { RouterModule } from '@angular/router';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { NgxLoadingModule } from 'ngx-loading';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, HomepageComponent, DetailFoodComponent],
+  declarations: [HeaderComponent, FooterComponent, HomepageComponent, DetailFoodComponent, CartComponent, CheckoutComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,6 +25,6 @@ import { NgxLoadingModule } from 'ngx-loading';
     NgxStarRatingModule ,
     NgxLoadingModule
   ],
-  exports: [HeaderComponent, FooterComponent, HomepageComponent, DetailFoodComponent]
+  exports: [HeaderComponent, FooterComponent, HomepageComponent, DetailFoodComponent, CartComponent, CheckoutComponent]
 })
 export class CustomerModule { }

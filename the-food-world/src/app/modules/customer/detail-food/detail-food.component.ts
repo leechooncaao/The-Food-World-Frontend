@@ -1,6 +1,5 @@
-import { async } from '@angular/core/testing';
 import { CommentDTO } from './../../../models/CommentDTO';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Account } from 'src/app/models/Account';
@@ -12,6 +11,7 @@ import { RatingService } from 'src/app/services/rating.service';
 import { CommentService } from 'src/app/services/comment.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { CartService } from 'src/app/services/cart.service';
 
 declare var $: any;
 
@@ -58,7 +58,8 @@ export class DetailFoodComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private ratingService: RatingService,
               private commentService: CommentService,
-              private storage: AngularFireStorage) { }
+              private storage: AngularFireStorage,
+              private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getDetailFoodById();
@@ -297,6 +298,10 @@ export class DetailFoodComponent implements OnInit {
     this.commentService.deleteComment(this.deleteCommentId).subscribe(() =>{
       this.listCommentDTO = this.listCommentDTO.filter(commentDTO => commentDTO.commentId !== this.deleteCommentId);
     })
+  }
+
+  addToCart(){
+    this.cartService.addNewFoodToCart(this.food);
   }
 
 }

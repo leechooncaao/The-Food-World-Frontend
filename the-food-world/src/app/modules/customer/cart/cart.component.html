@@ -1,0 +1,112 @@
+<section class="cart_area" *ngIf="listFoods.length === 0 || !listFoods">
+  <div class="container d-flex align-items-center justify-content-center">
+    <div class="cart_inner">
+      <h5>Bạn chưa chọn vật phẩm nào cả !</h5>
+      <div class="checkout_btn_inner" style="margin-top: 5%">
+        <a class="button primary-btn" routerLink="">Tiếp tục mua hàng</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cart_area" *ngIf="listFoods.length > 0">
+  <div class="container">
+    <div class="cart_inner">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Vật phẩm</th>
+              <th scope="col" class="item-center">Giá</th>
+              <th scope="col" class="item-center">Số lượng</th>
+              <th scope="col" class="item-center">Xóa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cartFood of listFoods; let i = index">
+              <td>
+                <div class="media">
+                  <div class="d-flex">
+                    <img src="{{ cartFood.food.foodImage }}" alt="" />
+                  </div>
+                  <div class="media-body">
+                    <p>{{ cartFood.food.foodName }}</p>
+                  </div>
+                </div>
+              </td>
+              <td class="item-center">
+                <h5>{{ cartFood.food.foodPrice | number: "0.0" }}đ</h5>
+              </td>
+              <td class="item-center">
+                <div class="product_count">
+                  <input
+                    type="text"
+                    name="qty"
+                    id="food{{ i }}"
+                    min="1"
+                    title="Quantity:"
+                    class="input-text qty"
+                    [value]="cartFood.foodQuantity"
+                  />
+                  <button
+                    (click)="increaseItem(i)"
+                    class="increase items-count"
+                    type="button"
+                  >
+                    <i class="lnr lnr-chevron-up"></i>
+                  </button>
+                  <button
+                    (click)="decreaseItem(i)"
+                    class="reduced items-count"
+                    type="button"
+                  >
+                    <i class="lnr lnr-chevron-down"></i>
+                  </button>
+                </div>
+              </td>
+              <td class="item-center">
+                <button
+                  class="button primary-btn"
+                  (click)="removeFoodCart(cartFood.food.foodId)"
+                >
+                  X
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td class="item-center">
+                <h5>Tổng cộng</h5>
+              </td>
+              <td class="item-center">
+                <h5>{{ total | number: "0.0" }}đ</h5>
+              </td>
+            </tr>
+
+            <tr class="out_button_area">
+              <td class="d-none-l"></td>
+              <td class=""></td>
+              <td></td>
+              <td>
+                <div
+                  class="
+                    checkout_btn_inner
+                    d-flex
+                    align-items-center
+                    justify-content-end
+                  "
+                >
+                  <a class="gray_btn" routerLink="">Tiếp tục mua hàng</a>
+                  <a class="primary-btn ml-2" routerLink="/checkout"
+                    >Tiến hành thanh toán</a
+                  >
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

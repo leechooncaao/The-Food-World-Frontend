@@ -1,4 +1,5 @@
 $(function() {
+  console.log('vao duoc')
   "use strict";
 
   //show hide edit form comment
@@ -115,7 +116,9 @@ $(function() {
         nodes[handle].innerHTML = values[handle];
     });
   
-  }
+  };
+
+ 
   
 });
 

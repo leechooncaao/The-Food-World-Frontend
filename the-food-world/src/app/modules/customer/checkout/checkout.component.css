@@ -1,0 +1,6 @@
+#complete-checkout:disabled {
+  background: gray;
+  border: gray;
+  color: black;
+  cursor: default;
+}
